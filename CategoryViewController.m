@@ -1,21 +1,23 @@
 //
-//  SecondViewController.m
+//  CategoryViewController.m
 //  SyPulse
 //
-//  Created by Joseph Mizrahi on 4/2/12.
+//  Created by Joseph Mizrahi on 4/11/12.
 //  Copyright (c) 2012 Self Employed and Loving It!. All rights reserved.
 //
 
-#import "SecondViewController.h"
+
+#import "CategoryViewController.h"
 #import "NSString+HTML.h"
 #import "MWFeedParser.h"
 #import "DetailTableViewController.h"
 #import "SVProgressHUD.h"
+#import "ThirdViewController.h"
 
 
-@implementation SecondViewController
+@implementation CategoryViewController
 @synthesize itemsToDisplay, refreshHeaderView = _refreshHeaderView;
-
+@synthesize third, rss;
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -51,10 +53,11 @@
 	// Super
 	[super viewDidLoad];
 	
-   // [SVProgressHUD showInView:self.view];
+    // [SVProgressHUD showInView:self.view];
     [self.tableView addSubview:_refreshHeaderView];
-
+    
 	// Setup
+    variableNameHere = self.title;
 	self.title = @"Loading...";
 	formatter = [[NSDateFormatter alloc] init];
 	[formatter setDateStyle:NSDateFormatterShortStyle];
@@ -64,13 +67,13 @@
     [SVProgressHUD showInView:self.view];
     
 	/*
-	// Refresh button
-	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
-																							target:self 
-																							action:@selector(refresh)] autorelease];
-	*/
-     // Parse
-	NSURL *feedURL = [NSURL URLWithString:@"http://www.sypulse.org/category/videos-3/feed/"];
+     // Refresh button
+     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+     target:self 
+     action:@selector(refresh)] autorelease];
+     */
+    // Parse
+	NSURL *feedURL = [NSURL URLWithString:rss];
 	feedParser = [[MWFeedParser alloc] initWithFeedURL:feedURL];
 	feedParser.delegate = self;
 	feedParser.feedParseType = ParseTypeFull; // Parse feed info and all items
@@ -84,6 +87,7 @@
 
 // Reset and reparse
 - (void)refresh {
+    variableNameHere = self.title;
 	self.title = @"Refreshing...";
 	[parsedItems removeAllObjects];
 	[feedParser stopParsing];
@@ -93,6 +97,7 @@
 }
 
 - (void)updateTableWithParsedItems {
+    //self.title = variableNameHere;
 	self.itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
 						   [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"date" 
 																				 ascending:NO] autorelease]]];
@@ -112,7 +117,8 @@
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedInfo:(MWFeedInfo *)info {
 	NSLog(@"Parsed Feed Info: “%@”", info.title);
-	self.title = @"Videos";
+	self.title = variableNameHere;
+
 }
 
 - (void)feedParser:(MWFeedParser *)parser didParseFeedItem:(MWFeedItem *)item {
@@ -223,7 +229,8 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    
+    tableView.separatorColor = [UIColor grayColor];
+
     // Configure the cell.
 	MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
 	if (item) {
@@ -288,6 +295,7 @@
     
     
 }
+
 
 - (void)viewDidUnload
 {

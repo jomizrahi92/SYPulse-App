@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Categories</key>
+	<dict>
+		<key>Boy/Girl Stuff</key>
+		<string>http://www.sypulse.org/category/boygirl-stuff/feed/</string>
+		<key>Comedy Videos</key>
+		<string>http://www.sypulse.org/category/videos/feed/</string>
+		<key>— Andy</key>
+		<string>http://www.sypulse.org/category/videos/andy/feed/</string>
+		<key>Community Spotlight</key>
+		<string>http://www.sypulse.org/category/videos/andy/feed/</string>
+		<key>Creative Writing</key>
+		<string>feed://www.sypulse.org/category/creative-writing/feed/</string>
+		<key>Fashion</key>
+		<string>http://www.sypulse.org/category/fashion/feed/</string>
+		<key>Health</key>
+		<string>http://www.sypulse.org/category/health/feed/</string>
+		<key>Holidays</key>
+		<string>http://www.sypulse.org/category/holidays/feed/</string>
+		<key>Humor</key>
+		<string>http://www.sypulse.org/category/humor/feed/</string>
+		<key>Legal Column</key>
+		<string>http://www.sypulse.org/category/legal-column/feed/</string>
+		<key>News</key>
+		<string>http://www.sypulse.org/category/news/feed/</string>
+		<key>— Stick’s Pick</key>
+		<string>http://www.sypulse.org/category/news/sticks-pick/feed/</string>
+		<key>Sports</key>
+		<string>http://www.sypulse.org/category/sports-2/feed/</string>
+		<key>SY Voices</key>
+		<string>http://www.sypulse.org/category/sy-voices/feed/</string>
+		<key>— Community Spotlight</key>
+		<string>http://www.sypulse.org/category/sy-voices/community-spotlight-sy-voices/feed/</string>
+		<key>Uncategorized</key>
+		<string>http://www.sypulse.org/category/uncategorized/feed/</string>
+		<key>Videos</key>
+		<string>http://www.sypulse.org/category/videos-3/feed/</string>
+	</dict>
+</dict>
+</plist>
